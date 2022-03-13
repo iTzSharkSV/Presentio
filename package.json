@@ -8,7 +8,7 @@
 		"Present-Info"
 	],
 	"type": "module",
-	"main": "Lib/Info.js",
+	"main": "Lib/Present.js",
 	"files": [
 		"Lib/**/*",
 		"LICENSE",
@@ -17,15 +17,8 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"author": {
-		"name": "SharkSV",
-		"email": "SharkSV@outlook.com",
-		"url": "https://github.com/iTzSharkSV"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/iTzSharkSV/Presentio-js.git"
-	},
+	"author": "Shorky <SharkSV@outlook.com> (https://github.com/iTzSharkSV)",
+	"repository": "github:iTzSharkSV/Presentio-js",
 	"license": "MIT",
 	"scripts": {
 		"test": "node Tests/Present.Test",
