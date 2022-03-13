@@ -1,0 +1,48 @@
+{
+	"name": "presentio",
+	"version": "0.1.0",
+	"description": "Cli-Info... in style!",
+	"keywords": [
+		"Cli",
+		"Info",
+		"Present-Info"
+	],
+	"type": "module",
+	"main": "Lib/Info.js",
+	"files": [
+		"Lib/**/*",
+		"LICENSE",
+		"README.md"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": {
+		"name": "SharkSV",
+		"email": "SharkSV@outlook.com",
+		"url": "https://github.com/iTzSharkSV"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/iTzSharkSV/Presentio-js.git"
+	},
+	"license": "MIT",
+	"scripts": {
+		"test": "node Tests/Present.Test",
+		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prepare": "husky install"
+	},
+	"prettier": {
+		"trailingComma": "none",
+		"arrowParens": "always",
+		"singleQuote": true,
+		"printWidth": 80,
+		"useTabs": true,
+		"tabWidth": 4,
+		"semi": true
+	},
+	"devDependencies": {
+		"prettier": "^2.5.1",
+		"husky": "^7.0.0"
+	}
+}
