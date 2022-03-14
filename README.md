@@ -14,38 +14,57 @@ npm install presentio
 yarn add presentio
 ```
 
-## Add from source
-
-```Txt
-# clone repo
-$ git clone https://github.com/iTzSharkSV/Hyper.git
-
-# move the Lib folder to your project
-# & then
-# import like normal
-```
-
 ## Usage/Examples
 
 ```Txt
 import Present from 'presentio';
 
-Present({
-	title: 'Present',
-	tagLine: 'by @Shorky',
-	description: 'CLI-Info in style!',
-	version: '1.0',
-	fgColor: 'white',  # optional
-	bgColor: 'green',  # optional
-	clear: true        # optional
-});
+# @example (Hyper: Project-Generator CLI)
+const hlpTxt = `
+Usage:
+	$ hyper <commands> [options]
+
+Commands:
+	init   Initialize a new project
+	list   List all available templates
+
+Options:
+	-h, --help  Show CLI help
+	-c, --clear  Clear Terminal
+	-v, --version  Show CLI version
+`;
+
+Present(
+	{
+		title: 'Hyper',
+		tagLine: 'by @Shorky',
+		description: 'A CLI to bootstrap new projects!',
+		version: '1.0',
+		fgColor: 'white',  # optional
+		bgColor: 'green',  # optional
+		clear: true        # optional
+	},
+	hlpTxt
+);
+
 ---------------------------------------------------------
 
 # output
-# fancy stuff included ;D
+# (fancy stuff included ;D)
 Hyper v1.0 by @Shorky
-CLI-Info in style!
+A CLI to bootstrap new projects!
 
+Usage:
+	$ hyper <commands> [options]
+
+Commands:
+	init   Initialize a new project
+	list   List all available templates
+
+Options:
+	-h, --help  Show CLI help
+	-c, --clear  Clear Terminal
+	-v, --version  Show CLI version
 ```
 
 ## Available Clrs (for fg&bg)
@@ -82,16 +101,18 @@ CLI-Info in style!
 │  └─ SECURITY.md
 ├─ Lib
 │  ├─ Modules
-│  │  ├─ Clear.js
-│  │  ├─ Clrs.js
-│  │  └─ Fmt.js
-│  └─ Present.js
+│  │  ├─ Clear.ts
+│  │  ├─ Clrs.ts
+│  │  └─ Fmt.ts
+│  ├─ Info.ts
+│  └─ Present.ts
 ├─ Tests
 │  └─ Present.Test.js
 ├─ .gitignore
 ├─ .prettierrc  # Available within package.json
 ├─ README.md
 ├─ package.json
+├─ tsconfig.json
 └─ LICENSE
 ```
 
