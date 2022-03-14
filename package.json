@@ -10,7 +10,7 @@
 	"main": "Build/Present.js",
 	"type": "module",
 	"files": [
-		"Lib/**/*",
+		"Build/**/*",
 		"LICENSE",
 		"README.md"
 	],
@@ -21,11 +21,11 @@
 	"repository": "github:iTzSharkSV/Presentio-js",
 	"license": "MIT",
 	"scripts": {
-		"test": "node Tests/Present.Test.js",
 		"build": "tsc",
 		"build:dev": "tsc --watch",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"test": "npm run build && node Tests/Present.Test.js"
 	},
 	"prettier": {
 		"trailingComma": "none",
