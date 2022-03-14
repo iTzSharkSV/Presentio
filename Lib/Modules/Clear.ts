@@ -9,11 +9,11 @@
  *   : doSomethingElse();
  * ```
  */
-function clearConsole() {
+function clearConsole(): void {
 	/**
 	 * @type {string} arg
 	 */
-	let arg;
+	let arg: string;
 
 	switch (process.platform) {
 		case 'win32':

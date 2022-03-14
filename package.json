@@ -1,14 +1,14 @@
 {
 	"name": "presentio",
-	"version": "0.1.0",
+	"version": "2.0.0",
 	"description": "Cli-Info... in style!",
 	"keywords": [
 		"Cli",
 		"Info",
 		"Present-Info"
 	],
+	"main": "Build/Present.js",
 	"type": "module",
-	"main": "Lib/Present.js",
 	"files": [
 		"Lib/**/*",
 		"LICENSE",
@@ -21,7 +21,9 @@
 	"repository": "github:iTzSharkSV/Presentio-js",
 	"license": "MIT",
 	"scripts": {
-		"test": "node Tests/Present.Test",
+		"test": "node Tests/Present.Test.js",
+		"build": "tsc",
+		"build:dev": "tsc --watch",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"prepare": "husky install"
 	},
@@ -35,7 +37,9 @@
 		"semi": true
 	},
 	"devDependencies": {
+		"@types/node": "^17.0.21",
+		"husky": "^7.0.0",
 		"prettier": "^2.5.1",
-		"husky": "^7.0.0"
+		"typescript": "^4.6.2"
 	}
 }
