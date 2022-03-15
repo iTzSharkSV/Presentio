@@ -17,54 +17,85 @@ yarn add presentio
 ## Usage/Examples
 
 ```Txt
+# @example (Hyper: Project-Generator CLI)
+-----------------------------------------
+
 import Present from 'presentio';
 
-# @example (Hyper: Project-Generator CLI)
+# Separated hlpTxt for visual clarity
 const hlpTxt = `
 Usage:
-	$ hyper <commands> [options]
+  $ hyper <commands> [options]
 
 Commands:
-	init   Initialize a new project
-	list   List all available templates
+  init   Initialize a new project
+  list   List all available templates
 
 Options:
-	-h, --help  Show CLI help
-	-c, --clear  Clear Terminal
-	-v, --version  Show CLI version
+  -h, --help  Show CLI help
+  -c, --clear  Clear Terminal
+  -v, --version  Show CLI version
 `;
 
 Present(
 	{
-		title: 'Hyper',
-		tagLine: 'by @Shorky',
-		description: 'A CLI to bootstrap new projects!',
-		version: '1.0',
-		fgColor: 'white',  # optional
-		bgColor: 'green',  # optional
-		clear: true        # optional
+	  title: 'Hyper',
+	  tagLine: 'by @Shorky',
+	  description: 'A CLI to bootstrap new projects!',
+	  version: '1.0',
+	  fgColor: 'white',  # optional
+	  bgColor: 'green',  # optional
+	  clear: true        # optional
 	},
-	hlpTxt
+    hlpTxt
 );
+```
 
----------------------------------------------------------
-
+```Txt
 # output
-# (fancy stuff included ;D)
+# (rainbows included ;D)
+------------------------
+
 Hyper v1.0 by @Shorky
 A CLI to bootstrap new projects!
 
 Usage:
-	$ hyper <commands> [options]
+  $ hyper <commands> [options]
 
 Commands:
-	init   Initialize a new project
-	list   List all available templates
+  init   Initialize a new project
+  list   List all available templates
 
 Options:
-	-h, --help  Show CLI help
-	-c, --clear  Clear Terminal
-	-v, --version  Show CLI version
+  -h, --help  Show CLI help
+  -c, --clear  Clear Terminal
+  -v, --version  Show CLI version
+```
+
+## The Why?
+
+```Txt
+Why use Presentio instead of the default console.log()?
+-------------------------------------------------------
+
+  - Elegent
+  - Colorful
+  - Readable
+  - Customizable
+  - & Easy to use
+
+  overall:
+  - Its all about the small things!
+```
+
+```Txt
+Why create a whole library for this?
+------------------------------------
+
+Presentio is a tool that was originally created for the `Hyper-CLI`;
+The use of various libraries to just log some basic colored txt & a help msg was too excessive.
+Here aroused the idea to create a fully fletched yet lightwieght library.
+& that's how `Presentio` was born.
 ```
 
 ## Available Clrs (for fg&bg)
@@ -107,7 +138,7 @@ Options:
 │  ├─ Info.ts
 │  └─ Present.ts
 ├─ Tests
-│  └─ Present.Test.js
+│  └─ Present.Test.mjs
 ├─ .gitignore
 ├─ .prettierrc  # Available within package.json
 ├─ README.md
