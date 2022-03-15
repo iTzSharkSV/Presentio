@@ -1,18 +1,4 @@
-import Present from '../Build/Present.js';
-
-const hlpTxt = `
-Usage:
-	$ hyper <commands> [options]
-
-Commands:
-	init   Initialize a new project
-	list   List all available templates
-
-Options:
-	-h, --help  Show CLI help
-	-c, --clear  Clear Terminal
-	-v, --version  Show CLI version
-`;
+import { Present, hlpTxt } from '../Build/Present.js';
 
 Present(
 	{
@@ -24,5 +10,16 @@ Present(
 		bgColor: 'green',
 		clear: true
 	},
-	hlpTxt
+	hlpTxt(
+		'hyper',
+		{
+			init: 'Initilize a new project',
+			list: 'List all available templates'
+		},
+		{
+			'-h, --help': 'Show this help message',
+			'-c, --clear': 'Clear Terminal',
+			'-v, --version': 'Show CLI version'
+		}
+	)
 );
