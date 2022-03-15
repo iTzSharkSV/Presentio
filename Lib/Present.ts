@@ -58,4 +58,5 @@ function Present(options: iOptions, hlpTxt: string): void {
 	process.stdout.write(hlpTxt);
 }
 
+export { Present };
 export default Present;
