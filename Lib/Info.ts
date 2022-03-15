@@ -16,7 +16,7 @@ import iOptions from './Interfaces/Options.js';
  * 	fgColor: 'white',
  * 	bgColor: 'green',
  * 	clear: true,
- * })
+ * });
  * ```
  *
  * @example Basic setup
@@ -26,7 +26,7 @@ import iOptions from './Interfaces/Options.js';
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0'
- * })
+ * });
  * ```
  */
 function Info(uOptions: iOptions): void {

@@ -1,3 +1,12 @@
+/**
+ * @property {string} title
+ * @property {string} tagLine
+ * @property {string} description
+ * @property {string} version
+ * @property {string} fgColor
+ * @property {string} bgColor
+ * @property {boolean} clear
+ */
 interface iOptions {
 	title: string;
 	tagLine: string;

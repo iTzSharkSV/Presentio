@@ -12,13 +12,12 @@ import iOptions from './Interfaces/Options.js';
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0',
- * 	fgColor: 'white',  // optional
- * 	bgColor: 'green',  // optional
- * 	clear: true,       // optional
+ * 	fgColor: 'white',  // default: 'white'
+ * 	bgColor: 'green',  // default: 'green'
+ * 	clear: true,       // default: true
  * },
- * // here goes hlpTxt for example
- * // (leave empty if you don't want it)
- * // example:
+ * // hlpTxt goes here
+ * // example: (Hyper: Project-Generator CLI)
  * `
  * Usage:
  * 	$ hyper <commands> [options]
