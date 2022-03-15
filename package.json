@@ -21,11 +21,11 @@
 	"repository": "github:iTzSharkSV/Presentio-js",
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc",
-		"build:dev": "tsc --watch",
-		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"prepare": "husky install",
-		"test": "npm run build && node Tests/Present.Test.js"
+		"bld": "tsc",
+		"bld:dev": "tsc --watch",
+		"fmt": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"test": "npm run bld && node Tests/Present.Test.mjs"
 	},
 	"prettier": {
 		"trailingComma": "none",
