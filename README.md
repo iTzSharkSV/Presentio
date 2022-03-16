@@ -22,8 +22,8 @@ yarn add presentio
 
 import Present from 'presentio';
 
-# Separated hlpTxt for visual clarity
-const hlpTxt = `
+# Separated text for visual clarity
+const thingToLog = `
 Usage:
   $ hyper <commands> [options]
 
@@ -32,9 +32,14 @@ Commands:
   list   List all available templates
 
 Options:
-  -h, --help  Show CLI help
-  -c, --clear  Clear Terminal
-  -v, --version  Show CLI version
+  -h, --help      Show CLI help
+  -c, --clear     Clear Terminal
+  -v, --version   Show CLI version
+  -r, --rainbow   I don't know what this does
+
+Examples:
+  $ hyper init --skip
+  $ hyper list --rainbow
 `;
 
 Present(
@@ -47,13 +52,15 @@ Present(
 	  bgColor: 'green',  # optional
 	  clear: true        # optional
 	},
-    hlpTxt
+  thingToLog
+  # or use the blt-in hlpTxt() fn
 );
 ```
 
 ```Txt
 # output
 # (rainbows included ;D)
+# (formatting also!)
 ------------------------
 
 Hyper v1.0 by @Shorky
@@ -75,17 +82,13 @@ Options:
 ## The Why?
 
 ```Txt
-Why use Presentio instead of the default console.log()?
+Why use Presentio instead of console.log()?
 -------------------------------------------------------
 
   - Elegent
   - Colorful
   - Readable
-  - Customizable
-  - & Easy to use
-
-  overall:
-  - Its all about the small things!
+  - & Minimal
 ```
 
 ```Txt
@@ -131,10 +134,14 @@ Here aroused the idea to create a fully fletched yet lightwieght library.
 │  ├─ CONTRIBUTING.md
 │  └─ SECURITY.md
 ├─ Lib
+│  ├─ Interfaces
+│  │  └─ Options.ts
 │  ├─ Modules
 │  │  ├─ Clear.ts
 │  │  ├─ Clrs.ts
 │  │  └─ Fmt.ts
+│  ├─ Utils
+│  │  └─ Space.ts
 │  ├─ Info.ts
 │  └─ Present.ts
 ├─ Tests
