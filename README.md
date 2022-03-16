@@ -36,10 +36,6 @@ Options:
   -c, --clear     Clear Terminal
   -v, --version   Show CLI version
   -r, --rainbow   I don't know what this does
-
-Examples:
-  $ hyper init --skip
-  $ hyper list --rainbow
 `;
 
 Present(
@@ -52,8 +48,8 @@ Present(
 	  bgColor: 'green',  # optional
 	  clear: true        # optional
 	},
-  thingToLog
-  # or use the blt-in hlpTxt() fn
+    thingToLog
+    # or use the blt-in hlpTxt() fn
 );
 ```
 
@@ -117,7 +113,7 @@ Here aroused the idea to create a fully fletched yet lightwieght library.
 ## Project Tree (For contributors)
 
 ```Txt
-📦 <Present>
+📦 <Presentio>
 ├─ .circleci
 │  └─ config.yml
 ├─ .github
