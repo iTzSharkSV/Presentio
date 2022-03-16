@@ -58,9 +58,8 @@ function Present(options: iOptions, hlpTxt: string): void {
 		clear
 	});
 
-	if (Parse()) {
-		console.log(hlpTxt);
-	}
+	const { helpFlag } = Parse();
+	helpFlag && console.log(hlpTxt);
 }
 
 /**
