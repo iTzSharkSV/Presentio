@@ -1,5 +1,6 @@
 import fmt from './Modules/Fmt.js';
 import Info from './Info.js';
+import Parse from './Args.js';
 import Spc from './Utils/Space.js';
 import iOptions from './Interfaces/Options.js';
 
@@ -57,7 +58,9 @@ function Present(options: iOptions, hlpTxt: string): void {
 		clear
 	});
 
-	process.stdout.write(hlpTxt);
+	if (Parse()) {
+		console.log(hlpTxt);
+	}
 }
 
 /**
