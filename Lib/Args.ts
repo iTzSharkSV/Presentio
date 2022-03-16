@@ -12,8 +12,18 @@ function Parse(): { helpFlag: boolean; versionFlag: boolean } {
 
 	for (let i = 0; i < args.length; i++) {
 		if (args.indexOf(args[i]) > -1) {
-			args[i] == '--help' && (helpFlag = true);
-			args[i] == '--version' && (versionFlag = true);
+			switch (args[i]) {
+				case '-h':
+				case '--help':
+					helpFlag = true;
+					break;
+				case '-v':
+				case '--version':
+					versionFlag = true;
+					break;
+				default:
+					break;
+			}
 
 			args.splice(i, 1);
 		}
