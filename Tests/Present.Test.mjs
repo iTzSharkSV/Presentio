@@ -7,7 +7,7 @@ Present(
 		description: 'A CLI to bootstrap new projects!',
 		version: '1.0',
 		fgColor: 'white',
-		bgColor: 'green',
+		bgColor: 'magenta',
 		clear: true
 	},
 	hlpTxt(
