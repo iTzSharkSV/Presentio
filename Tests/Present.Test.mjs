@@ -17,8 +17,8 @@ Present(
 			list: 'List all available templates'
 		},
 		{
-			'-h, --help': 'Show this help message',
-			'-c, --clear': 'Clear Terminal',
+			'-h, --help': '   Show this help message',
+			'-c, --clear': '  Clear Terminal',
 			'-v, --version': 'Show CLI version'
 		}
 	)
