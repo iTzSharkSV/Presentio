@@ -66,8 +66,9 @@ function Present(options: iOptions, hlpTxt: string): void {
  * Default hlpTxt for Present()
  * @param {string} name
  * @param {object} cmds
+ * @param {object} options
  * @returns {string}
- * @example Advanced setup
+ * @example
  * ```js
  * hlpTxt({
  *   'Hyper',
