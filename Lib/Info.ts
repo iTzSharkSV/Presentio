@@ -2,6 +2,7 @@ import fmt from './Modules/Fmt.js';
 import clrCode from './Modules/Clrs.js';
 import clearConsole from './Modules/Clear.js';
 import iOptions from './Interfaces/Options.js';
+import { stdout } from 'process';
 
 /**
  * 📟 Prints out an info header for Node.js CLIs
@@ -55,7 +56,7 @@ function Info(uOptions: iOptions): void {
 	// Clear the terminal before printing
 	clear && clearConsole();
 
-	process.stdout.write(
+	stdout.write(
 		`\n${fmt(
 			`${fmt(` ${title} `, clrCode(fgColor))}`,
 			clrCode(bgColor) + 10
