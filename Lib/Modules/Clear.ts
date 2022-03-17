@@ -1,3 +1,5 @@
+import { stdout, platform } from 'process';
+
 /**
  * 💾 Cross platform clear console
  * @example
@@ -9,13 +11,13 @@
  *   : doSomethingElse();
  * ```
  */
-function clearConsole() {
+function clearConsole(): void {
 	/**
 	 * @type {string} arg
 	 */
-	let arg;
+	let arg: string;
 
-	switch (process.platform) {
+	switch (platform) {
 		case 'win32':
 			arg = '\x1B[2J\x1B[0f';
 			break;
@@ -23,7 +25,7 @@ function clearConsole() {
 			arg = '\x1B[2J\x1B[3J\x1B[H';
 	}
 
-	process.stdout.write(arg);
+	stdout.write(arg);
 }
 
 export default clearConsole;

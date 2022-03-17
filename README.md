@@ -14,38 +14,109 @@ npm install presentio
 yarn add presentio
 ```
 
-## Add from source
-
-```Txt
-# clone repo
-$ git clone https://github.com/iTzSharkSV/Hyper.git
-
-# move the Lib folder to your project
-# & then
-# import like normal
-```
-
 ## Usage/Examples
 
 ```Txt
+# @example (Hyper: Project-Generator CLI)
+-----------------------------------------
+
 import Present from 'presentio';
 
-Present({
-	title: 'Present',
-	tagLine: 'by @Shorky',
-	description: 'CLI-Info in style!',
-	version: '1.0',
-	fgColor: 'white',  # optional
-	bgColor: 'green',  # optional
-	clear: true        # optional
-});
----------------------------------------------------------
+# Separated text for visual clarity
+const thingToLog = `
+Usage:
+  $ hyper <commands> [options]
 
+Commands:
+  init   Initialize a new project
+  list   List all available templates
+
+Options:
+  -h, --help      Show CLI help
+  -c, --clear     Clear Terminal
+  -v, --version   Show CLI version
+  -r, --rainbow   I don't know what this does
+`;
+
+Present(
+	{
+	  title: 'Hyper',
+	  tagLine: 'by @Shorky',
+	  description: 'A CLI to bootstrap new projects!',
+	  version: '1.0',
+	  fgColor: 'white',  # optional
+	  bgColor: 'green',  # optional
+	  clear: true        # optional
+	},
+    thingToLog
+    # or use the blt-in hlpTxt() fn
+    # (basically, it's thingToLog but... with colors, separators, etc!)
+    hlpTxt(
+      'name-to-display',
+
+      # cmds goes here
+      # follow general format of:
+      # cmd: 'description'
+      {
+        init: 'Initialize a new project',
+        list: 'List all available templates'
+      },
+
+      # options (flags) goes here
+      # follow general format of:
+      # '-alias, --option': 'description'
+      {
+        '-h, --help': 'Show CLI help',
+        '-c, --clear': 'Clear Terminal',
+        '-v, --version': 'Show CLI version',
+        '-r, --rainbow': 'I don't know what this does'
+      }
+    )
+);
+```
+
+```Txt
 # output
-# fancy stuff included ;D
-Hyper v1.0 by @Shorky
-CLI-Info in style!
+# (rainbows included ;D)
+# (formatting also!)
+------------------------
 
+Hyper v1.0 by @Shorky
+A CLI to bootstrap new projects!
+
+Usage:
+  $ hyper <commands> [options]
+
+Commands:
+  init   Initialize a new project
+  list   List all available templates
+
+Options:
+  -h, --help  Show CLI help
+  -c, --clear  Clear Terminal
+  -v, --version  Show CLI version
+```
+
+## The Why?
+
+```Txt
+Why use Presentio instead of console.log()?
+-------------------------------------------------------
+
+  - Elegent
+  - Colorful
+  - Readable
+  - & Minimal
+```
+
+```Txt
+Why create a whole library for this?
+------------------------------------
+
+Presentio is a tool that was originally created for the `Hyper-CLI`;
+The use of various libraries to just log some basic colored txt & a help msg was too excessive.
+Here aroused the idea to create a fully fletched yet lightwieght library.
+& that's how `Presentio` was born.
 ```
 
 ## Available Clrs (for fg&bg)
@@ -64,7 +135,7 @@ CLI-Info in style!
 ## Project Tree (For contributors)
 
 ```Txt
-📦 <Present>
+📦 <Presentio>
 ├─ .circleci
 │  └─ config.yml
 ├─ .github
@@ -81,17 +152,23 @@ CLI-Info in style!
 │  ├─ CONTRIBUTING.md
 │  └─ SECURITY.md
 ├─ Lib
+│  ├─ Interfaces
+│  │  └─ Options.ts
 │  ├─ Modules
-│  │  ├─ Clear.js
-│  │  ├─ Clrs.js
-│  │  └─ Fmt.js
-│  └─ Present.js
+│  │  ├─ Clear.ts
+│  │  ├─ Clrs.ts
+│  │  └─ Fmt.ts
+│  ├─ Utils
+│  │  └─ Space.ts
+│  ├─ Info.ts
+│  └─ Present.ts
 ├─ Tests
-│  └─ Present.Test.js
+│  └─ Present.Test.mjs
 ├─ .gitignore
 ├─ .prettierrc  # Available within package.json
 ├─ README.md
 ├─ package.json
+├─ tsconfig.json
 └─ LICENSE
 ```
 

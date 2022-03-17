@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"outDir": "Build",
+		"rootDir": "Lib",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"declaration": true,
+		"strict": true,
+
+		// Checks
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+
+		// Debugging Options
+		"traceResolution": false,
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"pretty": true,
+
+		"types": ["node"]
+	},
+	"include": ["Lib"],
+	"exclude": ["node_modules"]
+}

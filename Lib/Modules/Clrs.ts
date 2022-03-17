@@ -1,47 +1,33 @@
 /**
  * js-like-im-5 text-coordination
  * @param {string} color
- * @returns {number} code
+ * @returns {number}
  * @example
  * ```js
  * import clrCode from '...'
  * ...
- * clrCode('gReeN')
+ * clrCode('gReeN');
  * ```
  */
-function clrCode(color) {
-	/**
-	 * @type {number} code
-	 */
-	let code;
-
+function clrCode(color: string): number {
 	switch (color.toLowerCase()) {
 		case 'black':
-			code = 30;
-			break;
+			return 30;
 		case 'red':
-			code = 31;
-			break;
+			return 31;
 		case 'yellow':
-			code = 33;
-			break;
+			return 33;
 		case 'blue':
-			code = 34;
-			break;
+			return 34;
 		case 'magenta':
-			code = 35;
-			break;
+			return 35;
 		case 'cyan':
-			code = 36;
-			break;
+			return 36;
 		case 'white':
-			code = 37;
-			break;
+			return 37;
 		default:
-			code = 32;
+			return 32;
 	}
-
-	return code;
 }
 
 export default clrCode;

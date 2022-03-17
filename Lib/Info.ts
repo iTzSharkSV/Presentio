@@ -1,34 +1,36 @@
 import fmt from './Modules/Fmt.js';
 import clrCode from './Modules/Clrs.js';
 import clearConsole from './Modules/Clear.js';
+import iOptions from './Interfaces/Options.js';
+import { stdout } from 'process';
 
 /**
  * 📟 Prints out an info header for Node.js CLIs
  * @param {object} uOptions
  * @example Advanced setup
  * ```js
- * Present({
- * 	title: '@projectName',
+ * Info({
+ * 	title: 'projectName',
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0',
  * 	fgColor: 'white',
  * 	bgColor: 'green',
  * 	clear: true,
- * })
+ * });
  * ```
  *
  * @example Basic setup
  * ```js
- * Present({
- * 	title: '@projectName',
+ * Info({
+ * 	title: 'projectName',
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0'
- * })
+ * });
  * ```
  */
-function Present(uOptions) {
+function Info(uOptions: iOptions): void {
 	const defaultOptions = {
 		title: 'Title',
 		tagLine: 'by @author',
@@ -54,7 +56,7 @@ function Present(uOptions) {
 	// Clear the terminal before printing
 	clear && clearConsole();
 
-	console.log(
+	stdout.write(
 		`\n${fmt(
 			`${fmt(` ${title} `, clrCode(fgColor))}`,
 			clrCode(bgColor) + 10
@@ -62,4 +64,4 @@ function Present(uOptions) {
 	);
 }
 
-export default Present;
+export default Info;
