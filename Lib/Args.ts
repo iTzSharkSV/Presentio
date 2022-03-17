@@ -2,7 +2,11 @@ import { argv } from 'process';
 
 /**
  * Bom-Bow Argument Parser
- * @description Blt-in parser for `hlp & ver` options
+ * ```Txt
+ *   A simple blt-in commandline argument parser
+ *   checks for `--help` and `--version` options
+ *   and returns `true` if found
+ * ```
  */
 function Parse(): { helpFlag: boolean; versionFlag: boolean } {
 	const args: string[] = argv.slice(2);
