@@ -50,6 +50,28 @@ Present(
 	},
     thingToLog
     # or use the blt-in hlpTxt() fn
+    # (basically, it's thingToLog but... with colors, separators, etc!)
+    hlpTxt(
+      'name-to-display',
+
+      # cmds goes here
+      # follow general format of:
+      # cmd: 'description'
+      {
+        init: 'Initialize a new project',
+        list: 'List all available templates'
+      },
+
+      # options (flags) goes here
+      # follow general format of:
+      # '-alias, --option': 'description'
+      {
+        '-h, --help': 'Show CLI help',
+        '-c, --clear': 'Clear Terminal',
+        '-v, --version': 'Show CLI version',
+        '-r, --rainbow': 'I don't know what this does'
+      }
+    )
 );
 ```
 
