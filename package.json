@@ -25,7 +25,7 @@
 		"bld": "tsc",
 		"bld:dev": "tsc --watch",
 		"fmt": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-		"test": "npm run bld && node Tests/Present.Test.mjs"
+		"test": "npm run bld && node Tests/Present.Test.mjs --help"
 	},
 	"prettier": {
 		"trailingComma": "none",
