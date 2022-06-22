@@ -1,28 +1,24 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"outDir": "Build",
-		"rootDir": "Lib",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"declaration": true,
+		"rootDir": ".",
+		"outDir": "Dist",
+		"target": "ESNEXT",
 		"strict": true,
-
-		// Checks
+		"pretty": true,
+		"listFiles": false,
+		"listEmittedFiles": false,
+		"traceResolution": false,
+		"allowSyntheticDefaultImports": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
-
-		// Debugging Options
-		"traceResolution": false,
-		"listEmittedFiles": false,
-		"listFiles": false,
-		"pretty": true,
-
-		"types": ["node"]
+		"paths": {
+			"~/*": ["./*"],
+			"@Mod/*": ["./Lib/Modules/*"]
+		},
+		"types": ["node", "jest"],
+		"typeRoots": ["node_modules/@types", "./Lib/@Types"]
 	},
-	"include": ["Lib"],
-	"exclude": ["node_modules"]
+	"include": ["Lib"]
 }
