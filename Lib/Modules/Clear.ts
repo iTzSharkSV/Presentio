@@ -3,18 +3,13 @@ import { stdout, platform } from 'process';
 /**
  * 💾 Cross platform clear console
  * @example
- * ```js
+ * ```ts
  * import clearConsole from '...'
- * ...
- * clear
- *   ? clearConsole()
- *   : doSomethingElse();
+ * ---------
+ * wannaClear && clearConsole()
  * ```
  */
 function clearConsole(): void {
-	/**
-	 * @type {string} arg
-	 */
 	let arg: string;
 
 	switch (platform) {
@@ -28,4 +23,4 @@ function clearConsole(): void {
 	stdout.write(arg);
 }
 
-export default clearConsole;
+export { clearConsole as default };
