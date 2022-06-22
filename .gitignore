@@ -1,5 +1,9 @@
 # Node
+# -----
 node_modules
 
 # Build Files
+# ------------
+Dist
 Build
+Coverage
