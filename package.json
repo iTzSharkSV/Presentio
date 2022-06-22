@@ -1,6 +1,6 @@
 {
 	"name": "presentio",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Cli-Info... in style!",
 	"keywords": [
 		"Cli",
@@ -18,7 +18,7 @@
 		"access": "public"
 	},
 	"author": "Shorky <SharkSV@outlook.com> (https://github.com/iTzSharkSV)",
-	"repository": "github:iTzSharkSV/Presentio-js",
+	"repository": "github:iTzSharkSV/Presentio",
 	"license": "MIT",
 	"scripts": {
 		"prepare": "husky install",
