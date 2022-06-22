@@ -1,114 +1,15 @@
-`Presentio`
+# Presentio
 
-`CLI-Info... in style!`
-
-> Presentio helps you to present your CLI info in a nice way.
+`Present CLI Info in Style! (A CLI app helper)`
 
 ---
-
-## Add as a Dependency
-
-```Bash
-npm install presentio
-// or...
-yarn add presentio
-```
-
-## Usage/Examples
-
-```Txt
-@example: Hyper-CLI
------------------------------------------
-
-import Present from 'presentio';
-
-// Separated text for visual clarity
-const thingToLog = `
-Usage:
-  $ hyper <commands> [options]
-
-Commands:
-  init   Initialize a new project
-  list   List all available templates
-
-Options:
-  -h, --help      Show CLI help
-  -c, --clear     Clear Terminal
-  -v, --version   Show CLI version
-  -r, --rainbow   I don't know what this does
-`;
-
-Present({
-  title: 'Hyper-CLI',
-  tagLine: 'by @Shorky',
-  description: 'A CLI to bootstrap new projects!',
-  version: '1.0',
-  fgColor: 'white',   // optional (default: white)
-  bgColor: 'green',   // optional (default: green)
-  clear: true         // optional (default: true)
-}, thingToLog);
-```
-
-```Txt
-# output
-# (rainbows included ;D)
-------------------------
-
-Hyper v1.0 by @Shorky
-A CLI to bootstrap new projects!
-
-Usage:
-  $ hyper <commands> [options]
-
-Commands:
-  init   Initialize a new project
-  list   List all available templates
-
-Options:
-  -h, --help  Show CLI help
-  -c, --clear  Clear Terminal
-  -v, --version  Show CLI version
-```
-
-```Txt
-Alternatively:
-Use the blt-in hlpTxt() fn for a more:
-- compact
-- readable
-- & colorful output
------------------------------------------
-
-import { Present, hlpTxt } from 'presentio';
-
-Present({
-  ... same as above
-}, hlpTxt(
-  'Hyper',
-  // Cli-Commands goes here
-  // & follows the general format:
-  // command: 'description'
-  {
-    init: 'Initialize a new project',
-    list: 'List all available templates'
-  },
-  // Cli-Options goes here
-  // & follows the general format:
-  // '-alias, --option': 'description'
-  {
-    '-h, --help':     'Show CLI help',
-    '-c, --clear':    'Clear Terminal',
-    '-v, --version':  'Show CLI version',
-    '-r, --rainbow':  'I don't know what this does'
-  }
-));
-// now let the magic begin...
-```
 
 ## The Why?
 
 ```Txt
 Why use Presentio instead of console.log()?
 -------------------------------------------------------
+Simply put it, its way more:
   - Elegent
   - Colorful
   - Readable
@@ -119,17 +20,88 @@ Why use Presentio instead of console.log()?
 Why create a whole library for this?
 ------------------------------------
 
-Presentio is a tool that was originally created for the `Hyper-CLI`;
+Presentio is a tool that was originally created for the `Hyper-Cli`;
 The use of various libraries to just log some basic colored txt & a help msg was too excessive.
 Here aroused the idea to create a fully fletched yet lightwieght library.
-& that's how `Presentio` was born.
+& that's how this project was born.
+```
+
+---
+
+## Add as a Dependency
+
+```Bash
+yarn add presentio
+# or
+npm install presentio
+```
+
+## Usage/Examples
+
+`@example: Hyper-Cli`
+
+```Typescript
+import Present from 'presentio';
+
+Present({
+  title: 'Hyper',
+  tagline: 'by @Shorky',
+  description: 'A CLI to bootstrap new projects!',
+  version: '1.0',
+  fg: 'black',   // default: black
+  bg: 'green',   // default: green
+  clear: true,   // default: true
+}, helpMessage);
+```
+
+`Presentio also included a built-in fn to ease the process of creating a help message.`
+
+```Typescript
+import Present, { helpTxt } from 'presentio';
+
+const cliCmds = {
+  commands: {
+    prettify: 'add rainbows everywhere'
+  },
+  flags: {
+    rainbow: {
+      alais: 'r',
+      description: 'girl-in-red?',
+      default: false
+    }
+  }
+}
+
+Present({
+  ... // same config as above
+}, helpTxt(cliCmds));
+// & let the magic happen!
+```
+
+`Expected output`
+
+```Txt
+Hyper v1.0 by @Shorky
+A CLI to bootstrap new projects!
+
+Usage:
+  $ hyper <commands> [options]
+
+Commands:
+  <!-- cmd: description -->
+  prettify: add rainbows everywhere
+
+Options:
+  <!-- alias, flag: description -->
+  -r, --rainbow: girl-in-red?
+  -h, --help: Print CLI's helpTxt      <!-- Included by default -->
+  -v, --version: Print CLI's version   <!-- Included by default -->
 ```
 
 ## Available Clrs (for fg&bg)
 
 ```Txt
-// in-case sensitive
-// & will default to green if not found
+<!-- Incase sensitive -->
 - Black
 - Red
 - Green
@@ -138,12 +110,16 @@ Here aroused the idea to create a fully fletched yet lightwieght library.
 - Magenta
 - Cyan
 - White
+<!-- We'll be adding more later -->
 ```
 
 ## Project Tree (For contributors)
 
 ```Txt
 📦 <Presentio>
+├─ __Tests__
+│  ├─ Clrs.test.ts
+│  └─ Present.test.ts
 ├─ .circleci
 │  └─ config.yml
 ├─ .github
@@ -151,7 +127,10 @@ Here aroused the idea to create a fully fletched yet lightwieght library.
 │  │  ├─ BUG_REPORT.md
 │  │  └─ FEATURE_REQUEST.md
 │  ├─ workflows
-│  │  └─ CodeQL.yml
+│  │  ├─ CodeQL.yml
+│  │  └─ Release.yml
+│  ├─ CODEOWNERS
+│  ├─ FUNDING.yml
 │  └─ PULL_REQUEST_TEMPLATE.md
 ├─ .husky
 │  └─ pre-commit
@@ -160,20 +139,24 @@ Here aroused the idea to create a fully fletched yet lightwieght library.
 │  ├─ CONTRIBUTING.md
 │  └─ SECURITY.md
 ├─ Lib
-│  ├─ Interfaces
-│  │  └─ Options.ts
+│  ├─ @Types
+│  │  ├─ Args.d.ts
+│  │  ├─ Present.d.ts
+│  │  └─ Usage.d.ts
 │  ├─ Modules
 │  │  ├─ Clear.ts
-│  │  ├─ Clrs.ts
-│  │  └─ Fmt.ts
+│  │  └─ Clrs.ts
 │  ├─ Utils
-│  │  └─ Space.ts
-│  ├─ Info.ts
-│  └─ Present.ts
-├─ Tests
-│  └─ Present.Test.mjs
+│  │  ├─ ErrorHandler.ts
+│  │  └─ Indent.ts
+│  ├─ Args.ts
+│  ├─ Present.ts
+│  └─ Usage.ts
 ├─ .gitignore
-├─ .prettierrc  # Available within package.json
+├─ .prettierrc    <!-- Available within package.json -->
+├─ .eslintrc      <!-- Available within package.json -->
+├─ jest.config.ts
+├─ rollup.config.js
 ├─ README.md
 ├─ package.json
 ├─ tsconfig.json
