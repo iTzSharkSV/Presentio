@@ -2,41 +2,48 @@ import { argv } from 'process';
 
 /**
  * Bom-Bow Argument Parser
- * ```Txt
- *   A simple blt-in commandline argument parser
- *   checks for `--help` and `--version` options
- *   and returns `true` if found
+ * @description A built-in argument parser!
+ *
+ * @example
+ * ```ts
+ * import Argo from '...'
+ * ---------
+ * const flags = Argo();
+ *
+ * if (flags.rainbow) {
+ *   return `girl-in-red?!`
+ * }
  * ```
+ *
+ * @returns {object} passed-in-flags
  */
-function Parse(): { helpFlag: boolean; versionFlag: boolean } {
+function Argo(): iArgs {
 	const args: string[] = argv.slice(2);
+	const flags = {
+		help: false,
+		version: false,
+	};
 
-	let helpFlag = false;
-	let versionFlag = false;
+	for (const i in args) {
+		const obj = args[i];
 
-	for (let i = 0; i < args.length; i++) {
-		if (args.indexOf(args[i]) > -1) {
-			switch (args[i]) {
+		if (args.indexOf(obj) > -1) {
+			switch (obj) {
 				case '-h':
 				case '--help':
-					helpFlag = true;
+					flags.help = true;
 					break;
 				case '-v':
 				case '--version':
-					versionFlag = true;
+					flags.version = true;
 					break;
 				default:
 					break;
 			}
-
-			args.splice(i, 1);
 		}
 	}
 
-	return {
-		helpFlag,
-		versionFlag
-	};
+	return flags;
 }
 
-export default Parse;
+export { Argo as default };
