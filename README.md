@@ -54,7 +54,7 @@ Present({
 }, helpMessage);
 ```
 
-`Presentio also included a built-in fn to ease the process of creating a help message.`
+`Presentio also includes a built-in fn to ease the process of creating a help message.`
 
 ```Typescript
 import Present, { helpTxt } from 'presentio';
