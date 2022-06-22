@@ -1,33 +1,52 @@
-/**
- * js-like-im-5 text-coordination
- * @param {string} color
- * @returns {number}
- * @example
- * ```js
- * import clrCode from '...'
- * ...
- * clrCode('gReeN');
- * ```
- */
-function clrCode(color: string): number {
-	switch (color.toLowerCase()) {
-		case 'black':
-			return 30;
-		case 'red':
-			return 31;
-		case 'yellow':
-			return 33;
-		case 'blue':
-			return 34;
-		case 'magenta':
-			return 35;
-		case 'cyan':
-			return 36;
-		case 'white':
-			return 37;
-		default:
-			return 32;
+const clrList: { [key: string]: number } = {
+	dim: 2,
+	black: 30,
+	red: 31,
+	green: 32,
+	yellow: 33,
+	blue: 34,
+	magenta: 35,
+	cyan: 36,
+	white: 37,
+};
+
+declare global {
+	interface String {
+		/**
+		 * Extends native String object
+		 * @example
+		 * ```ts
+		 * import '...'
+		 * ---------
+		 * 'Hello'.paint('black', 'red');
+		 *                          ^ bgColor // optional
+		 * ```
+		 */
+		paint(color: string, subColor?: string): string;
 	}
 }
 
-export default clrCode;
+Object.defineProperty(String.prototype, 'paint', {
+	value: function (fg: string, bg?: string) {
+		const fgColor = fg.toLowerCase();
+		const bgColor = bg && bg.toLowerCase();
+
+		if (fgColor in clrList) {
+			if (bgColor) {
+				if (bgColor in clrList) {
+					return `\x1B[${clrList[fgColor]};${
+						clrList[bgColor] + 10
+					}m${this}\x1B[0m`;
+				}
+
+				throw new Error(`Unknown background color: ${bgColor}`);
+			}
+
+			return `\x1B[${clrList[fgColor]}m${this}\x1B[0m`;
+		}
+
+		throw new Error(`Unknown foreground color: ${fgColor}`);
+	},
+});
+
+export {};
