@@ -1,15 +1,31 @@
 # Security Policy
 
-## Reporting a Vulnerability
+Security is our topmost priority. We appreciate investigative work into system security by well-intentioned, ethical security researchers. If you discover a vulnerability, however small, we would like to know about it to address it with appropriate measures as quickly as possible. This document outlines the method we use to work with the security research community to address runtime security.
 
-If there are any vulnerability in this project, don't hesitate to _report them_.
+## Reporting a vulnerability
 
-1. Contact project maintainer [Shorky](mailto:SharkSV@outlook.com).
-2. Describe the vulnerability.
+Please email findings [Here](mailto:SharkSV@outlook.com). We strive to resolve all problems
+as quickly as possible, and are more than happy to play an active role in
+publication of writeups after the problem is resolved.
 
--   If you have a fix, explain or attach it.
--   In the near time, expect a reply with the required steps. Also, there may be a demand for a pull request which include the fixes.
+Try to include as much information as possible in the initial email, so we can
+quickly address the issue.
 
-> You should not disclose the vulnerability publicly if you haven't received an answer in some weeks.
-> If the vulnerability is rejected, you may post it publicly within some hour of rejection, unless the rejection is withdrawn within that time period.
-> After the vulnerability has been fixed, you may disclose the vulnerability details publicly over some days.
+**Please do not open security issues in the public issue tracker.**
+
+### Please do the following
+
+-   Do not take advantage of the vulnerability or problem you have discovered.
+-   Do not publish or reveal the problem until it has been resolved.
+-   Do not use attacks on physical security or applications of third parties.
+-   Do provide sufficient information to reproduce the problem, so we will be able
+    to resolve it as quickly as possible. Usually, a list of steps to follow, and
+    the vulnerable project version is enough. More complex vulnerabilities may
+    require further explanation.
+
+### Our commitment to you
+
+-   If you act in accordance with this policy, we will not take legal action
+    against you in regard to your report.
+-   We will handle your report with strict confidentiality, and not pass on your
+    personal details to third parties without your permission.

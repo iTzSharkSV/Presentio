@@ -1,6 +1,6 @@
 # Contributing to this project
 
-Welcome, and thank you for your interest in contributing to Hyper!
+Welcome, and thank you for your interest in contributing to this project!
 
 There are many ways in which you can contribute, beyond writing code. The goal of this document is to provide a high-level overview of how you can get involved.
 
@@ -20,7 +20,7 @@ Can you recreate the issue even after disabling all your personal extensions? If
 
 ### Look for an Existing Issue
 
-Before you create a new issue, please do a search in [open issues](https://github.com/iTzSharkSV/Presentio-js/issues) to see if the issue or feature request has already been filed.
+Before you create a new issue, please do a search in open issues to see if the issue or feature request has already been filed.
 
 Be sure to scan through the most popular feature requests.
 
