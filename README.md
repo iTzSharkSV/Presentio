@@ -8,7 +8,7 @@
 
 ```Txt
 Why use Presentio instead of console.log()?
--------------------------------------------------------
+-------------------------------------------
 Simply put it, its way more:
   - Elegent
   - Colorful
