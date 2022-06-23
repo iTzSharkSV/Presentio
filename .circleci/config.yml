@@ -1,22 +1,55 @@
 version: 2.1
 
-orbs:
-    node: circleci/node@4.7
-
-jobs:
+commands:
     build-n-test:
-        docker:
-            - image: cimg/node:16.10
-
         steps:
+            - run:
+                  name: Display version
+                  command: npm version
             - checkout
-            - node/install-packages:
-                  pkg-manager: yarn
+            - restore_cache:
+                  keys:
+                      - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+                      - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-master-{{ .Environment.CIRCLE_JOB }}
+            - run:
+                  name: Install dependencies
+                  command: npm ci
             - run:
                   name: Run tests
-                  command: yarn test
+                  command: npm test
+    save-npm-lock:
+        steps:
+            - save_cache:
+                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+                  paths:
+                      - node_modules
+    save-npm-cache:
+        steps:
+            - save_cache:
+                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+                  paths:
+                      - ~/.npm/_cacache
+
+jobs:
+    node-v14-test:
+        docker:
+            - image: node:14
+        steps:
+            - build-n-test
+    node-v16-test:
+        docker:
+            - image: node:16
+        steps:
+            - build-n-test
+    node-v18-test:
+        docker:
+            - image: node:18
+        steps:
+            - build-n-test
 
 workflows:
-    sample:
+    node-multi-build:
         jobs:
-            - build-n-test
+            - node-v14-test
+            - node-v16-test
+            - node-v18-test
