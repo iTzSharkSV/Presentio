@@ -7,26 +7,28 @@ commands:
                   name: Display version
                   command: npm version
             - checkout
+            - node/install-packages:
+                  pkg-manager: yarn
             - restore_cache:
                   keys:
                       - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
                       - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-master-{{ .Environment.CIRCLE_JOB }}
             - run:
                   name: Install dependencies
-                  command: npm ci
+                  command: yarn ci
             - run:
                   name: Run tests
-                  command: npm test
+                  command: yarn test
     save-npm-lock:
         steps:
             - save_cache:
-                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
                   paths:
                       - node_modules
     save-npm-cache:
         steps:
             - save_cache:
-                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+                  key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
                   paths:
                       - ~/.npm/_cacache
 
