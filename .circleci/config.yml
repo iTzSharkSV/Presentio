@@ -18,7 +18,7 @@ commands:
                       - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-cache-master-{{ .Environment.CIRCLE_JOB }}
             - run:
                   name: Install dependencies
-                  command: yarn ci
+                  command: yarn install
             - run:
                   name: Run tests
                   command: yarn test
