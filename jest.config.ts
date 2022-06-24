@@ -9,7 +9,7 @@ const config: Config.InitialOptions = {
 	coverageDirectory: 'Coverage',
 	coverageThreshold: {
 		global: {
-			lines: 70,
+			lines: 60,
 		},
 	},
 };
