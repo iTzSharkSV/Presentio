@@ -52,6 +52,7 @@ function Present(options: iOptions, helpTxt: string): void {
 
 process.on('uncaughtException', (err) => {
 	handleErrors(err);
+	process.exit(1);
 });
 
 export { Present as default, helpTxt };
