@@ -38,11 +38,6 @@ commands:
                       - ~/.npm/_cacache
 
 jobs:
-    node-v12-test:
-        docker:
-            - image: node:12
-        steps:
-            - build-n-test
     node-v14-test:
         docker:
             - image: node:14
@@ -53,10 +48,15 @@ jobs:
             - image: node:16
         steps:
             - build-n-test
+    node-v18-test:
+        docker:
+            - image: node:18
+        steps:
+            - build-n-test
 
 workflows:
     node-multi-build:
         jobs:
-            - node-v12-test
             - node-v14-test
             - node-v16-test
+            - node-v18-test

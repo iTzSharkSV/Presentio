@@ -6,7 +6,6 @@ const config: Config.InitialOptions = {
 	testRegex: '/__Tests__/.+test.tsx?$',
 	collectCoverage: true,
 	collectCoverageFrom: ['./Lib/**', '!./Lib/@Types/**'],
-	coverageDirectory: 'Coverage',
 	coverageThreshold: {
 		global: {
 			lines: 60,
