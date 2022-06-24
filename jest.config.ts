@@ -4,8 +4,14 @@ const config: Config.InitialOptions = {
 	preset: 'ts-jest',
 	testEnvironment: 'node',
 	testRegex: '/__Tests__/.+test.tsx?$',
-	verbose: true,
-	automock: false,
+	collectCoverage: true,
+	collectCoverageFrom: ['./Lib/**', '!./Lib/@Types/**'],
+	coverageDirectory: 'Coverage',
+	coverageThreshold: {
+		global: {
+			lines: 70,
+		},
+	},
 };
 
 export default config;
