@@ -2,6 +2,8 @@
 
 `Present CLI Info in Style! (A CLI app helper)`
 
+[![codecov](https://codecov.io/gh/iTzSharkSV/Presentio/branch/Main/graph/badge.svg?token=VZLTB11J5P)](https://codecov.io/gh/iTzSharkSV/Presentio)
+
 ---
 
 ## The Why?
