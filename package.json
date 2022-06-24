@@ -26,9 +26,8 @@
 		"prepare": "husky install",
 		"build": "rollup -c rollup.config.js",
 		"build:watch": "yarn build && --watch",
-		"test": "jest",
+		"test": "jest --coverage",
 		"test:watch": "jest --watch",
-		"test:coverage": "jest --coverage",
 		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
 		"pre-commit": "lint-staged"
