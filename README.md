@@ -76,7 +76,6 @@ const cliCmds = {
 Present({
   ... // same config as above
 }, helpTxt(cliCmds));
-// & let the magic happen!
 ```
 
 `Expected output from: $ hyper -h/--help`
@@ -119,13 +118,7 @@ Options:
 ```Txt
 📦 <Presentio>
 ├─ __Tests__
-│  ├─ Modules
-│  │  └─ Clrs.test.ts
-│  ├─ Utils
-│  │  ├─ ErrorHandler.test.ts
-│  │  └─ Indent.test.ts
-│  ├─ Args.test.ts
-│  └─ Present.test.ts
+│  └─ <!-- Same as @lib -->
 ├─ .circleci
 │  └─ config.yml
 ├─ .github
