@@ -1,4 +1,4 @@
-import '../Lib/Modules/Clrs';
+import '../../Lib/Modules/Clrs';
 
 describe('Clrs', () => {
 	it('Should print black text on green background', () => {

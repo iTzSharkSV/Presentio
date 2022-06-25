@@ -1,5 +1,5 @@
-import '../Lib/Modules/Clrs';
-import handleErrors from '../Lib/Utils/ErrorHandler';
+import '../../Lib/Modules/Clrs';
+import handleErrors from '../../Lib/Utils/ErrorHandler';
 
 describe('ErrorHandler', () => {
 	it('Should format error message', () => {

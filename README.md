@@ -21,9 +21,8 @@ Simply put it, its way more:
 ```Txt
 Why create a whole library for this?
 ------------------------------------
-
-Presentio is a tool that was originally created for the `Hyper-Cli`;
-The use of various libraries to just log some basic colored txt & a help msg was too excessive.
+Presentio is a tool that was originally created for the Hyper Cli;
+The use of various libraries to just log some basic colored txt & a help msg was a bit too excessive.
 Here aroused the idea to create a fully fletched yet lightwieght library.
 & that's how this project was born.
 ```
@@ -80,7 +79,7 @@ Present({
 // & let the magic happen!
 ```
 
-`Expected output`
+`Expected output from: $ hyper -h/--help`
 
 ```Txt
 Hyper v1.0 by @Shorky
@@ -120,7 +119,12 @@ Options:
 ```Txt
 📦 <Presentio>
 ├─ __Tests__
-│  ├─ Clrs.test.ts
+│  ├─ Modules
+│  │  └─ Clrs.test.ts
+│  ├─ Utils
+│  │  ├─ ErrorHandler.test.ts
+│  │  └─ Indent.test.ts
+│  ├─ Args.test.ts
 │  └─ Present.test.ts
 ├─ .circleci
 │  └─ config.yml
