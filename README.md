@@ -2,7 +2,7 @@
 
 `Present CLI Info in Style! (A CLI app helper)`
 
-[![codecov](https://codecov.io/gh/iTzSharkSV/Presentio/branch/Main/graph/badge.svg?token=VZLTB11J5P)](https://codecov.io/gh/iTzSharkSV/Presentio)
+![CircleCI](https://img.shields.io/circleci/build/github/iTzSharkSV/Presentio?logo=circleci&style=for-the-badge) ![Codecov](https://img.shields.io/codecov/c/github/iTzSharkSV/Presentio?logo=codecov&style=for-the-badge) ![npm bundle size](https://img.shields.io/bundlephobia/min/presentio?logo=npm&style=for-the-badge)
 
 ---
 
@@ -160,6 +160,10 @@ Options:
 ├─ package.json
 ├─ tsconfig.json
 └─ LICENSE
+```
+
+```Txt
+Made With ♥ By @Shorky
 ```
 
 ## License
