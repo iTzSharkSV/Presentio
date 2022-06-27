@@ -3,10 +3,12 @@ import Argo from '../Lib/Args';
 describe('Argo', () => {
 	it('Should parse cli arguments', () => {
 		const whatItShouldBe = {
-			help: false,
+			help: true,
 			version: false,
 		};
 
-		expect(JSON.stringify(Argo())).toBe(JSON.stringify(whatItShouldBe));
+		expect(JSON.stringify(Argo({ forceDisplayHelp: true }))).toBe(
+			JSON.stringify(whatItShouldBe)
+		);
 	});
 });

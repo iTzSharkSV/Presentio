@@ -17,12 +17,19 @@ import { argv } from 'process';
  *
  * @returns {object} passed-in-flags
  */
-function Argo(): iArgs {
+function Argo(options?: object): iArgs {
 	const args: string[] = argv.slice(2);
 	const flags = {
 		help: false,
 		version: false,
 	};
+
+	const runOptions = {
+		forceDisplayHelp: false,
+		...options,
+	};
+
+	runOptions.forceDisplayHelp && (flags.help = true);
 
 	for (const i in args) {
 		const obj = args[i];
