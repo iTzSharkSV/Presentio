@@ -1,3 +1,9 @@
+interface flag {
+	description: string;
+	alias?: string;
+	default?: boolean;
+}
+
 /**
  * helpTxt param object
  * @example
@@ -22,9 +28,5 @@ interface iCliCmds {
 	commands?: {
 		[key: string]: string;
 	};
-	flags?: {
-		alias: string;
-		description: string;
-		default: boolean;
-	};
+	flags?: flag;
 }

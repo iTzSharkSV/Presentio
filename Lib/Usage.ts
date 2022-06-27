@@ -65,9 +65,20 @@ function helpTxt(availableCmds: iCliCmds): string {
 			}
 		}
 
-		// TODO:
-		// Add flags sections
-		// got bored (I'll do it later, promise :>)
+		if (availableCmds.flags) {
+			hlpTxt += `\n  ${' FLAGS '.paint('black', 'yellow')}\n\n`;
+			hlpTxt +=
+				Spc(4, '-h, --help:'.paint('yellow')) +
+				Spc(3, 'Print CLI help message\n'.paint('dim'));
+
+			for (const [flag, options] of Object.entries(availableCmds.flags)) {
+				const alias = options.alias ? `-${options.alias}, ` : '';
+				hlpTxt +=
+					Spc(4, `${alias}--${flag}:`.paint('yellow')) +
+					Spc(3, options.description.paint('dim')) +
+					'\n';
+			}
+		}
 	}
 
 	return hlpTxt;
