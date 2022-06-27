@@ -4,6 +4,8 @@
 
 ![CircleCI](https://img.shields.io/circleci/build/github/iTzSharkSV/Presentio?logo=circleci&style=for-the-badge) ![Codecov](https://img.shields.io/codecov/c/github/iTzSharkSV/Presentio?logo=codecov&style=for-the-badge) ![npm bundle size](https://img.shields.io/bundlephobia/min/presentio?logo=npm&style=for-the-badge)
 
+<a href="https://www.buymeacoffee.com/shorky" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" width="150"></a>
+
 ---
 
 ## The Why?
