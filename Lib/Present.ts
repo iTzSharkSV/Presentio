@@ -1,127 +1,58 @@
-import fmt from './Modules/Fmt.js';
-import Info from './Info.js';
-import Parse from './Args.js';
-import Spc from './Utils/Space.js';
-import iOptions from './Interfaces/Options.js';
+import './Modules/Clrs';
+import clearConsole from './Modules/Clear';
+import handleErrors from './Utils/ErrorHandler';
+import Argo from './Args';
+import helpTxt from './Usage';
 
 /**
  * 📟 Prints out an info header for Node.js CLIs
  * @param {object} options
- * @param {string} hlpTxt
  * @example Advanced setup
- * ```js
+ * ```ts
  * Present({
  * 	title: 'projectName',
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0',
- * 	fgColor: 'white',  // default: 'white'
- * 	bgColor: 'green',  // default: 'green'
- * 	clear: true,       // default: true
- * },
- * // hlpTxt goes here
- * // example: (Hyper: Project-Generator CLI)
- * `
- * Usage:
- * 	$ hyper <commands> [options]
- *
- * Commands:
- *  init   Initialize a new project
- *  list   List all available templates
- *
- * Options:
- *  -h, --help  Show CLI help
- *  -c, --clear  Clear Terminal
- *  -v, --version  Show CLI version
- * `);
+ * 	fg: 'black',	// default: "black"
+ * 	bg: 'green',	// default: "green"
+ * 	clear: true,	// default: true
+ * });
  * ```
  */
-function Present(options: iOptions, hlpTxt: string): void {
-	// prettier-ignore
-	const { 
-		title, 
-		tagLine, 
-		description, 
-		version, 
-		fgColor, 
-		bgColor, 
-		clear 
-	} = options;
+function Present(options: iOptions, helpTxt: string): void {
+	const defaultOptions = {
+		title: 'Title',
+		tagLine: 'by @author',
+		description: 'An awesome description!',
+		version: '3-Mil',
+		fg: 'black',
+		bg: 'green',
+		clear: true,
+	};
 
-	Info({
-		title,
-		tagLine,
-		description,
-		version,
-		fgColor,
-		bgColor,
-		clear
-	});
+	const cli = {
+		...defaultOptions,
+		...options,
+	};
 
-	const { helpFlag } = Parse();
-	helpFlag && console.log(hlpTxt);
+	// Clear the terminal before printing
+	cli.clear && clearConsole();
+
+	console.log(
+		`\n%s v%s %s\n%s`,
+		` ${cli.title} `.paint(cli.fg, cli.bg),
+		cli.version,
+		cli.tagLine.paint('dim'),
+		cli.description.paint('dim')
+	);
+
+	Argo().help && console.log(helpTxt);
 }
 
-/**
- * Default hlpTxt for Present()
- * @param {string} name
- * @param {object} cmds
- * @param {object} options
- * @returns {string}
- * @example
- * ```js
- * hlpTxt({
- *   'Hyper',
- *   {
- * 	   init: 'Initialize a new project',
- * 	   list: 'List all available templates',
- *   },
- *   {
- * 	   '-h, --help': 'Show CLI help',
- * 	   '-c, --clear': 'Clear Terminal',
- * 	   '-v, --version': 'Show CLI version',
- *   }
- * })
- * ```
- */
-function hlpTxt(name: string, cmds: object, options: object): string {
-	let hlpTxt: string = ``;
+process.on('uncaughtException', (err) => {
+	handleErrors(err);
+	process.exit(1);
+});
 
-	// Usage
-	hlpTxt += `\n  ${fmt(' USAGE ', 42)}\n\n`;
-	hlpTxt +=
-		Spc(4) +
-		fmt(`$ `, 2) +
-		fmt(`${name} `, 32) +
-		fmt(`<commands> `, 36) +
-		fmt(`[options]\n`, 33);
-
-	// Commands
-	hlpTxt += `\n  ${fmt(' COMMANDS ', 46)}\n\n`;
-	for (const [key, value] of Object.entries(cmds)) {
-		// prettier-ignore
-		hlpTxt += 
-			Spc(4) + 
-			fmt(key, 36) + 
-			Spc(3) + 
-			fmt(value, 2) + 
-			`\n`;
-	}
-
-	// Options
-	hlpTxt += `\n  ${fmt(' OPTIONS ', 43)}\n\n`;
-	for (const [key, value] of Object.entries(options)) {
-		// prettier-ignore
-		hlpTxt += 
-			Spc(4) + 
-			fmt(key, 33) + 
-			Spc(3) + 
-			fmt(value, 2) + 
-			`\n`;
-	}
-
-	return hlpTxt;
-}
-
-export { Present, hlpTxt };
-export default Present;
+export { Present as default, helpTxt };
