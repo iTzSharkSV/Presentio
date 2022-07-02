@@ -41,7 +41,7 @@ npm install presentio
 
 ## Usage/Examples
 
-`@example: Hyper-Cli`
+`Example usage: Hyper`
 
 ```Typescript
 import Present from 'presentio';
@@ -51,10 +51,9 @@ Present({
   tagline: 'by @Shorky',
   description: 'A CLI to bootstrap new projects!',
   version: '1.0',
-  fg: 'black',   // default: black
-  bg: 'green',   // default: green
-  clear: true,   // default: true
+  // defaults > fg: 'black', bg: 'green', clear: true
 }, helpMessage);
+     // ^ Msg to print upon use of help argument (ig* -h, --help)
 ```
 
 `Presentio also includes a built-in fn to ease the process of creating a help message.`
@@ -119,8 +118,6 @@ Options:
 
 ```Txt
 📦 <Presentio>
-├─ __Tests__
-│  └─ <!-- Same as @lib -->
 ├─ .circleci
 │  └─ config.yml
 ├─ .github
@@ -130,15 +127,9 @@ Options:
 │  ├─ workflows
 │  │  ├─ CodeQL.yml
 │  │  └─ Release.yml
-│  ├─ CODEOWNERS
-│  ├─ FUNDING.yml
 │  └─ PULL_REQUEST_TEMPLATE.md
 ├─ .husky
 │  └─ pre-commit
-├─ Docs
-│  ├─ CODE_OF_CONDUCT.md
-│  ├─ CONTRIBUTING.md
-│  └─ SECURITY.md
 ├─ Lib
 │  ├─ @Types
 │  │  ├─ Args.d.ts
@@ -153,6 +144,8 @@ Options:
 │  ├─ Args.ts
 │  ├─ Present.ts
 │  └─ Usage.ts
+├─ __Tests__
+│  └─ <!-- Same as @Lib -->
 ├─ .gitignore
 ├─ .prettierrc    <!-- Available within package.json -->
 ├─ .eslintrc      <!-- Available within package.json -->
@@ -160,8 +153,7 @@ Options:
 ├─ rollup.config.js
 ├─ README.md
 ├─ package.json
-├─ tsconfig.json
-└─ LICENSE
+└─ tsconfig.json
 ```
 
 ```Txt
