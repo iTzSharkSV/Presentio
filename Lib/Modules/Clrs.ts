@@ -1,4 +1,6 @@
-const clrList: { [key: string]: number } = {
+import Spc from '../Utils/Indent';
+
+const Styles: iStyle = {
 	dim: 2,
 	black: 30,
 	red: 31,
@@ -27,25 +29,32 @@ declare global {
 }
 
 Object.defineProperty(String.prototype, 'paint', {
-	value: function (fg: string, bg?: string) {
+	value: function (fg: string, bg?: string): string {
 		const fgColor = fg.toLowerCase();
-		const bgColor = bg && bg.toLowerCase();
+		const stringObject = {
+			fg: Styles[fgColor],
+			bg: '',
+			msg: 'm' + this,
+		};
 
-		if (fgColor in clrList) {
-			if (bgColor) {
-				if (bgColor in clrList) {
-					return `\x1B[${clrList[fgColor]};${
-						clrList[bgColor] + 10
-					}m${this}\x1B[0m`;
-				}
-
-				throw new Error(`Unknown background color: ${bgColor}`);
+		if (fgColor in Styles) {
+			if (bg !== undefined && bg.toLowerCase() in Styles) {
+				stringObject.bg = `;${Styles[bg.toLowerCase()] + 10}`;
 			}
 
-			return `\x1B[${clrList[fgColor]}m${this}\x1B[0m`;
+			return (
+				`\x1B[` +
+				stringObject.fg +
+				stringObject.bg +
+				stringObject.msg +
+				`\x1B[0m`
+			);
 		}
 
-		throw new Error(`Unknown foreground color: ${fgColor}`);
+		// prettier-ignore
+		throw new Error(
+			`1 |\n 2 | "${this}".paint("${fg}");\n 3 | ${Spc(this.length + 9)} ^ color provided is not valid...\n 4 |\n 5 | Reason: color "${fg}" not in color list;\n 6 | Todo: Visit our wiki to get info about our supported color list!\n 7 |\n`.paint('red')
+		);
 	},
 });
 
