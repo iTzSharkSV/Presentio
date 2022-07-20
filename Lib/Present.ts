@@ -17,7 +17,7 @@ import helpTxt from './Usage';
  * 	fg: 'black',	// default: "black"
  * 	bg: 'green',	// default: "green"
  * 	clear: true,	// default: true
- * });
+ * }, $helpTxt);
  * ```
  */
 function Present(options: iOptions, helpTxt: string): void {
