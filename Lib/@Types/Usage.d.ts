@@ -28,5 +28,5 @@ interface iCliCmds {
 	commands?: {
 		[key: string]: string;
 	};
-	flags?: flag;
+	flags?: { [key: string]: flag };
 }
